@@ -1,0 +1,164 @@
+/* =============================================
+   BASIC SHAPES DEMO (Beginner Friendly)
+   - Plain CSS (no variables, no fancy features)
+   - One shape per full-screen section
+   - Scroll to see each shape
+============================================= */
+
+/* Remove default body margin so sections can touch edges */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  text-align: center; /* Center labels under shapes */
+}
+
+/* No styles needed on <main>; it's just a wrapper. (Removed empty rule) */
+
+/* Each section fills the whole browser window */
+.section {
+  width: 100vw; /* 100% of the viewport width */
+  height: 100vh; /* 100% of the viewport height */
+  display: flex; /* Use flexbox to center contents */
+  flex-direction: column; /* Stack shape and label vertically */
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  background: #f2f2f2; /* Light gray background so shapes stand out */
+  border-bottom: 1px solid #ddd; /* Small divider line between screens */
+  box-sizing: border-box; /* Include border in height */
+}
+
+/* Circle: make width == height and set border-radius 50% */
+.circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: #2196f3; /* Blue fill color */
+}
+
+.square {
+  width: 200px;
+  height: 200px;
+  background: #2196f3; /* Blue fill color */
+}
+
+/* Rectangle: wider than tall */
+.rectangle {
+  width: 300px; /* Wider */
+  height: 150px; /* Shorter */
+  background: #ff9800; /* Orange to tell it apart */
+}
+
+/* Ellipse: like a circle but stretched */
+.ellipse {
+  width: 280px; /* Wider */
+  height: 160px; /* Shorter */
+  background: #4caf50; /* Green */
+  border-radius: 50%; /* Rounds into an ellipse because width != height */
+}
+
+/* Triangle: use borders. The element itself has no width/height */
+.triangle {
+  width: 0; /* No box width */
+  height: 0; /* No box height */
+  margin-bottom: 16px; /* Space before label */
+  /* Build an upward pointing triangle */
+  border-left: 100px solid transparent; /* Left slanted edge */
+  border-right: 100px solid transparent; /* Right slanted edge */
+  border-bottom: 200px solid #e91e63; /* Bottom forms the visible triangle fill */
+}
+
+/* Diamond: just a square rotated 45 degrees */
+.diamond {
+  width: 200px;
+  height: 200px;
+  background: #9c27b0; /* Purple */
+  transform: rotate(45deg); /* Turn the square */
+}
+
+/* Labels under each shape */
+.label {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* css animations */
+/* 1) Circle: gentle pulse (scale up/down) */
+@keyframes circle-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+}
+.circle {
+  animation: circle-pulse 2.5s ease-in-out infinite;
+}
+
+/* 2) Square: slow spin (introduces rotation) */
+@keyframes square-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.square {
+  animation: square-spin 6s linear infinite;
+}
+
+/* 3) Rectangle: small side-to-side slide (introduces translateX) */
+@keyframes rect-slide {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(16px);
+  }
+}
+.rectangle {
+  animation: rect-slide 2s ease-in-out infinite;
+}
+
+/* 4) Ellipse: tiny bounce (introduces translateY) */
+@keyframes ellipse-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+.ellipse {
+  animation: ellipse-bounce 1.8s ease-in-out infinite;
+}
+
+/* 5) Triangle: color fade (animates the border color used to draw it) */
+@keyframes triangle-color {
+  0%,
+  100% {
+    border-bottom-color: #e91e63;
+  }
+  50% {
+    border-bottom-color: #0ad9d2;
+  }
+}
+.triangle {
+  animation: triangle-color 2s ease-in-out infinite;
+}
+
+/* 6) Diamond: subtle wobble (keep the 45deg base, add scale) */
+@keyframes diamond-wobble {
+  0%,
+  100% {
+    transform: rotate(45deg) scale(1);
+  }
+  50% {
+    transform: rotate(45deg) scale(1.08);
+  }
+}
+.diamond {
+  animation: diamond-wobble 2.2s ease-in-out infinite;
+}
