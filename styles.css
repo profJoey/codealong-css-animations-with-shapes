@@ -1,0 +1,33 @@
+/* =============================================
+   BASIC SHAPES DEMO (Beginner Friendly)
+   - Plain CSS (no variables, no fancy features)
+   - One shape per full-screen section
+   - Scroll to see each shape
+============================================= */
+
+/* Remove default body margin so sections can touch edges */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  text-align: center; /* Center labels under shapes */
+}
+
+/* No styles needed on <main>; it's just a wrapper. (Removed empty rule) */
+
+/* Each section fills the whole browser window */
+.section {
+  width: 100vw; /* 100% of the viewport width */
+  height: 100vh; /* 100% of the viewport height */
+  display: flex; /* Use flexbox to center contents */
+  flex-direction: column; /* Stack shape and label vertically */
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  background: #f2f2f2; /* Light gray background so shapes stand out */
+  border-bottom: 1px solid #ddd; /* Small divider line between screens */
+  box-sizing: border-box; /* Include border in height */
+}
+
+/* Basic shape base: give all shapes a size */
+.shape {
+  margin-bottom: 16px; /* Space between shape and its label */
+}
